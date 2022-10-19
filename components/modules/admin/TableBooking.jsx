@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import Cookies from "js-cookie";
+import ModalEditBooking from "./UpdateModalBooking";
+import Swal from "sweetalert2";
 
 export default function TableBooking() {
   const [users, setUser] = useState([]);
@@ -24,6 +26,38 @@ export default function TableBooking() {
     setUser(response.data.data);
   };
   console.log(users);
+
+  const deleteProduct = async (id) => {
+    const ID = users[id].id;
+
+    Swal.fire({
+      title: "Sure to Delete This Product?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await axios
+          .delete(`https://uticket-v2-be.vercel.app/api/v1/booking/${ID}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((res) => {
+            fetch();
+            Swal.fire("Deleted!", "Product Delete Success!", "success");
+            console.log(res);
+          })
+          .catch((err) => {
+            Swal.fire("Failed!", "Product Delete Failed!", "error");
+            console.log(err);
+          });
+      }
+    });
+  };
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
@@ -63,28 +97,31 @@ export default function TableBooking() {
                     <thead>
                       <tr>
                         <th>Airline Name</th>
-                        <th>Depature City</th>
-                        <th>Depature Country</th>
-                        <th>Arrive City</th>
-                        <th>Arive Country</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {/* {users.map((user) => (
+                      {users.map((user, index) => (
                         <tr key={user.id}>
-                          <td>{user.airline_name}</td>
-                          <td>{user.depature_city}</td>
-                          <td>{user.depature_country}</td>
-                          <td>{user.arrive_city}</td>
-                          <td>{user.arrive_country}</td>
+                          <td>{user.airlines_name}</td>
+                          <td>{user.booking_fullname}</td>
+                          <td>{user.booking_email}</td>
+                          <td>{user.booking_phone}</td>
+                          <td>{user.users_country}</td>
                           <td>
-                            <button className="btn btn-warning me-2">
-                              Edit
+                            <ModalEditBooking />
+                            <button
+                              className="btn btn-danger"
+                              onClick={() => deleteProduct(index)}
+                            >
+                              Delete
                             </button>
-                            <button className="btn btn-danger">Delete</button>
                           </td>
                         </tr>
-                      ))} */}
+                      ))}
                     </tbody>
                   </table>
                 </div>

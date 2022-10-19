@@ -11,7 +11,6 @@ import axios from "axios";
 function admin() {
   return (
     <>
-      <Header />
       <Table />
       <Sidenav />
       {/* <Footer /> */}

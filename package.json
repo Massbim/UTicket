@@ -34,6 +34,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.1",
     "sharp": "^0.31.1",
+    "sweetalert2": "^11.6.0",
     "swiper": "^8.4.4"
   },
   "devDependencies": {

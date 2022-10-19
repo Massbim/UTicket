@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 import styles from "../styles/404.module.css";
-import { useRouter } from "next/router";
-import Footer from "../components/modules/footer/Footer";
+// import { useRouter } from "next/router";
+// import Footer from "../components/modules/footer/Footer";
 
-import Image from "next/image";
+// import Image from "next/image";
 
 const Costum404 = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <Fragment>

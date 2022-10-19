@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './detailFlight.module.css'
-import Banner from '../../assets/img/detailFlight/banner-lg.svg'
+// import Banner from '../../assets/img/detailFlight/banner-lg.svg'
 import Image from 'next/image';
-import LogoGaruda from '../../assets/img/search/Logo-garuda.svg'
+// import LogoGaruda from '../../assets/img/search/Logo-garuda.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import plane from '../../assets/img/booking/plant.svg'
@@ -121,7 +121,7 @@ function DetailFlight() {
                 </div>
                 {/* {add ? ( */}
                   <>
-                    <p p className={styles.titleText}>
+                    <p className={styles.titleText}>
                       Title
                     </p>
                     <select

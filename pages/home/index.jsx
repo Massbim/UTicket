@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import styles from "./home.module.css";
 import home1 from "../../assets/img/home/home1.svg";
 import home2 from "../../assets/img/home/home2.svg";
@@ -8,7 +8,7 @@ import Image from "next/image";
 import Trending from "../../components/Trending";
 import TopTen from "../../components/TOP10";
 import SearchPopUp from "../../components/searchPopUp/searchPopUp";
-import NavbarProfile from "../../components/navbarProfile/index";
+// import NavbarProfile from "../../components/navbarProfile/index";
 
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
   
   return (
     <div>
-      <NavbarProfile find/>
+      {/* <NavbarProfile find/> */}
       <div className={styles.header}>
         <div className={styles["header-left"]}>
           <div className={styles.catchphrase}>

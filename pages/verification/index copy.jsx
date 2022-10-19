@@ -1,5 +1,7 @@
-import Router from "next/router";
-import { Fragment, useEffect } from "react";
+// import Router from "next/router";
+import { Fragment, 
+  // useEffect
+ } from "react";
 import nookies from "nookies";
 
 // import { getVerificationEmail } from "../../app/redux/Slice/VerificationEmailSlice";
@@ -10,7 +12,9 @@ import nookies from "nookies";
 // import { wrapper } from "../../app/redux/store";
 
 export const getServerSideProps = async (ctx) => {
-  const { token, refreshToken } = nookies.get(ctx);
+  const { token, 
+    // refreshToken
+   } = nookies.get(ctx);
   console.log("token: ", token);
   // console.log(ctx.cookies.get("token"));
   // const verifyType = ctx?.query?.type || null;
@@ -41,7 +45,9 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-const Verification = ({ status, statusCode, message, verifyType, usersId, tokenVerification, isLoading }) => {
+const Verification = (
+  // { status, statusCode, message, verifyType, usersId, tokenVerification, isLoading }
+  ) => {
   
   // console.log("status : ",status);
   // console.log("statusCode : ",statusCode);

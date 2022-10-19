@@ -5,14 +5,14 @@ import plane from '../../assets/img/search/logo-plant.svg'
 import plant from '../../assets/img/booking/plant.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import GarudaLogo from '../../assets/img/search/Logo-garuda.svg'
-import AirAsia from '../../assets/img/search/Logo-AirAsia.svg'
-import LeonAir from '../../assets/img/search/Logo-LeonAir.svg';
+// import GarudaLogo from '../../assets/img/search/Logo-garuda.svg'
+// import AirAsia from '../../assets/img/search/Logo-AirAsia.svg'
+// import LeonAir from '../../assets/img/search/Logo-LeonAir.svg';
 import filter from '../../assets/img/search/Logo-filter.svg'
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { useDispatch, useSelector } from 'react-redux';
-import { AirlineAction } from '../../config/redux/actions/airlineAction';
-import { DestinationAction } from '../../config/redux/actions/destinationAction';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { AirlineAction } from '../../config/redux/actions/airlineAction';
+// import { DestinationAction } from '../../config/redux/actions/destinationAction';
 import axios from 'axios';
 
 const arrow_switch = findIconDefinition({prefix: "fas", iconName: "arrow-right-arrow-left"})
@@ -44,7 +44,7 @@ function Search() {
   // dataTiket.map(item =>{
   //   console.log(item)
   // })
-  const fetch = async(e) =>{
+  const fetch = async() =>{
     // if(dataCity[0] && dataCityTo[0]){
     //   setIdFrom(dataCity[0].id)
     //   setIdTo(dataCityTo[0].id)
@@ -74,7 +74,7 @@ function Search() {
               setDataTo(result)
               // setDataCityTo(result)
         }
-    const handleSearch = (e) =>{
+    const handleSearch = () =>{
       fetch()
     }
     useEffect(() =>{

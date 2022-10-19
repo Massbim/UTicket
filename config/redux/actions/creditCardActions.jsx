@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getCreditCard = (token) => async (dispatch) => {
     try {
-        const result = await axios.get(process.env.API_BACKEND + "/creditCard", {
+        const result = await axios.get(process.env.API_BACKEND + "creditCard", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

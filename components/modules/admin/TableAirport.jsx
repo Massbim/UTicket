@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function TableAirport() {
   const [users, setUser] = useState([]);
@@ -44,7 +44,7 @@ export default function TableAirport() {
             <div className="col-12">
               <div className="card">
                 <div className="card-header d-flex justify-content-end">
-                  <ModalCreate />
+                  {/* <ModalCreate /> */}
                 </div>
                 {/* /.card-header */}
                 <div className="card-body">
@@ -67,10 +67,10 @@ export default function TableAirport() {
                           <td>{user.country}</td>
                           <td>{user.country_code}</td>
                           <td>
-                            <ModalUpdate />
+                            {/* <ModalUpdate /> */}
                             <button
                               className="btn btn-danger"
-                              onClick={() => deleteProduct(index)}
+                              // onClick={() => deleteProduct(index)}
                             >
                               Delete
                             </button>

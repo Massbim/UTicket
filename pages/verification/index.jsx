@@ -70,3 +70,70 @@
 // };
 
 // export default Verification;
+
+
+
+
+
+import Router from "next/router";
+import { Fragment, useEffect } from "react";
+import axios from "axios";
+// import { getVerificationEmail } from "../../app/redux/Slice/VerificationEmailSlice";
+
+import { toast } from "react-toastify";
+// import PreLoader from "../../components/PreLoader";
+
+// import { wrapper } from "../../app/redux/store";
+
+export const getServerSideProps = async (ctx) => {
+  const verifyType = ctx?.query?.type || null;
+  const usersId = ctx?.query?.id || null;
+  const tokenVerification = ctx?.query?.token || null;
+
+  return {
+    props: {
+      verifyType: verifyType,
+      usersId: usersId,
+      tokenVerification: tokenVerification,
+    },
+  };
+};
+
+const Verification = ({ verifyType, usersId, tokenVerification }) => {
+  useEffect(() => {
+    document.title = "Verification | uTicket";
+
+    const verify = async () => {
+      const response = await axios
+        .post(process.env.API_BACKEND + `users/verify?id=${usersId}&token=${tokenVerification}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        })
+        .then((res) => {
+          // return res.data;
+          toast.success(res.data.message, { toastId: "successVerificationEmail" });
+          return Router.push("/");
+        })
+        .catch((err) => {
+          // return err.response.data;
+          toast.warning(err.response.data.message, { toastId: "errorVerificationEmail" });
+          return Router.push("/");
+        });
+      return response;
+    };
+
+    if (verifyType == null && usersId == null && tokenVerification == null) {
+      toast.warning("Url verification invalid", { toastId: "invalidUrlVerificationEmail" });
+      Router.push("/");
+    }
+    if (verifyType != null && usersId != null && tokenVerification != null) {
+      verify();
+    }
+    return () => {};
+  }, []);
+
+  return <Fragment></Fragment>;
+};
+
+export default Verification;

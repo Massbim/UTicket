@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Link from "next/link";
+// import Link from "next/link";
 import ModalCreate from "./CreateModal";
 import ModalUpdate from "./UpdateModal";
 import Swal from "sweetalert2";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export default function Table() {
   const [users, setUser] = useState([]);
@@ -21,7 +21,7 @@ export default function Table() {
   };
 
   console.log(users);
-  const deleteProduct = async (id) => {
+  const deleteProduct = async () => {
     Swal.fire({
       title: "Sure to Delete This Product?",
       text: "You won't be able to revert this!",
@@ -34,7 +34,7 @@ export default function Table() {
       if (result.isConfirmed) {
         await axios
           .delete(`https://uticket-v2-be.vercel.app/api/v1/airlines/$`)
-          .then((res) => {
+          .then(() => {
             fetch();
             // dispatch(deleteProduct(res));
             // navigate('/product')
@@ -42,7 +42,7 @@ export default function Table() {
             // console.log(res);
             // setShow(false);
           })
-          .catch((err) => {
+          .catch(() => {
             Swal.fire("Failed!", "Product Delete Failed!", "error");
             // setShow(false);
           });

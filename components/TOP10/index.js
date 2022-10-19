@@ -1,14 +1,20 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, 
+  // useState 
+} from 'react'
 import styles from './top.module.css';
-import axios from 'axios';
-import btnPrev from '../../assets/logo/logo-prev.svg'
-import btnback from '../../assets/logo/logo-back.svg'
+// import axios from 'axios';
+// import btnPrev from '../../assets/logo/logo-prev.svg'
+// import btnback from '../../assets/logo/logo-back.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { DestinationAction } from '../../config/redux/actions/destinationAction'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, 
+  // Scrollbar, A11y
+ } from 'swiper';
 
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide, 
+  // useSwiper
+ } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -16,8 +22,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function TopTen({src, title}) {
-  const swiper = useSwiper();
+function TopTen({src, 
+  // title
+}) {
+  // const swiper = useSwiper();
     const dispatch = useDispatch();
     const datas = useSelector((state) => state.destination);
     console.log(datas)
@@ -50,8 +58,8 @@ function TopTen({src, title}) {
         className="mySwiper"
       >
         {datas?.data?.map((item, index) => (
-          <>
-            <SwiperSlide>
+          
+            <SwiperSlide key={index}>
               <div className={`mt-4`} key={index}>
                   <div className={`${styles.container_img}`}>
                       <Image src={src} alt="" className={`${styles.img}`}/>
@@ -59,7 +67,7 @@ function TopTen({src, title}) {
                   <span>{item.airport_arrive_city}</span>
               </div>
             </SwiperSlide>
-          </>
+          
             ))
         }
             {/* <div className="boxOfBtn w-100">

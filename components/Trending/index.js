@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, 
+  // useState
+ } from 'react'
 import './trend.module.css'
 import more from '../../assets/img/home/more-btn.svg'
 // import japan from "../../assets/images/japan.svg";
@@ -6,9 +8,9 @@ import styles from './trend.module.css'
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { DestinationAction } from '../../config/redux/actions/destinationAction'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -19,7 +21,7 @@ import 'swiper/css/scrollbar';
 // import "./styles.css";
 
 
-function Trending({}) {
+function Trending() {
   const dispatch = useDispatch();
   const datas = useSelector((state) => state.destination);
   console.log(datas)

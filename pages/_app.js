@@ -4,6 +4,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "../node_modules/@fortawesome/fontawesome-svg-core/styles.css";
 
+import Footer from "../components/modules/footer/Footer"
+import Navbar from "../components/navbarProfile"
+
 import { useEffect, Fragment } from "react";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
@@ -18,14 +21,22 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 library.add(fas, fab, far);
 
+import { useRouter } from "next/router";
+
 const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter()
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
-    document.title = "WChat | Chatting Everywhere";
+    document.title = "uTicket | Fly Everywhere";
   }, []);
 
   return (
     <Fragment>
+
+    
+
+    {router.pathname != "/auth" && router.pathname != "/auth/signup" && router.pathname != "/auth/login" ? <Navbar /> : null }
+
       <Fragment>
         <Provider store={store}>
           <Component {...pageProps} />
@@ -76,6 +87,14 @@ const MyApp = ({ Component, pageProps }) => {
           />
         </div>
       </Fragment>
+
+
+
+
+      {router.pathname != "/auth" && router.pathname != "/auth/signup" && router.pathname != "/auth/login" ? <Footer /> : null }
+
+
+
       <ToastContainer
         position="top-right"
         autoClose={2500}

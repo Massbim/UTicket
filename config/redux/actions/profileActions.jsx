@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getUserProfile = (token) => async (dispatch) => {
     try {
-        const result = await axios.get(process.env.API_BACKEND + "/users/profile/", {
+        const result = await axios.get(process.env.API_BACKEND + "users/profile/", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

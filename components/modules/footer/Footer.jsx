@@ -12,7 +12,9 @@ import {
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { faLocation, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { 
+  // faLocation, 
+  faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (

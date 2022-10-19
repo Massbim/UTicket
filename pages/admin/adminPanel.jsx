@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Link from "next/link";
+// import Link from "next/link";
 import ModalCreate from "../../components/modules/admin/CreateModal";
 import ModalEdit from "../../components/modules/admin/UpdateModal";
 import Swal from "sweetalert2";
@@ -18,7 +18,7 @@ export default function adminPanel() {
     );
     setUser(response.data.data);
   };
-  const deleteProduct = async (id) => {
+  const deleteProduct = async () => {
     Swal.fire({
       title: "Sure to Delete This Product?",
       text: "You won't be able to revert this!",
@@ -31,7 +31,7 @@ export default function adminPanel() {
       if (result.isConfirmed) {
         await axios
           .delete(`https://uticket-v2-be.vercel.app/api/v1/airlines`)
-          .then((res) => {
+          .then(() => {
             fetch();
             // dispatch(deleteProduct(res));
             // navigate('/product')
@@ -39,7 +39,7 @@ export default function adminPanel() {
             // console.log(res);
             // setShow(false);
           })
-          .catch((err) => {
+          .catch(() => {
             Swal.fire("Failed!", "Product Delete Failed!", "error");
             // setShow(false);
           });

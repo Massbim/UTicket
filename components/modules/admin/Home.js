@@ -221,7 +221,7 @@ export default function Home() {
                       />
                       {/* /.direct-chat-img */}
                       <div className="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
+                        Is this template really for free? That`s unbelievable!
                       </div>
                       {/* /.direct-chat-text */}
                     </div>
@@ -357,7 +357,7 @@ export default function Home() {
                               </small>
                             </span>
                             <span className="contacts-list-msg">
-                              I'll call you back at...
+                              I`ll call you back at...
                             </span>
                           </div>
                           {/* /.contacts-list-info */}

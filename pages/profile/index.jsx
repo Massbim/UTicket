@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import FormProfile from '../../components/formProfile'
-import NavbarProfile from '../../components/navbarProfile'
+// import NavbarProfile from '../../components/navbarProfile'
 import ProfileCard from '../../components/profileCard'
 import TabMyBooking from '../../components/tabMyBooking'
 import styles from './profile.module.css'
@@ -40,7 +40,7 @@ const Profile = ({ dataProfile, dataCC }) => {
 
   return (
     <div className={styles.container}>
-      <NavbarProfile setFocus={setFocus} />
+      {/* <NavbarProfile setFocus={setFocus} /> */}
       <div>
         <div className={styles.wrapper}>
           
